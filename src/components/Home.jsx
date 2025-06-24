@@ -6,7 +6,7 @@ function Home() {
   const burgerbg = { backgroundImage: `url(${image})` };
   return (
     <div className="w-screen h-[87vh] flex justify-evenly items-center">
-      <motion.div className="header h-[80%] w-[50%] flex flex-col justify-start items-center"
+      <motion.div className="header h-[100%] w-[50%] flex flex-col justify-center items-center mt-[120px]"
         initial={{
             x:-1000
         }}

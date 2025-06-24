@@ -40,14 +40,11 @@ function Explore() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
           viewport={{ once: true, amount: 0.2 }}
-          className="explorebuttonn cursor-pointer h-[60px] mt-10 w-[200px] flex justify-center items-center rounded-2xl text-white font-bold bg-green-700"
-          whileHover={{
-            scale: 1.1,
-          }}
+          className="explorebuttonn hover:bg-green-900 transition-all ease-in-out cursor-pointer h-[60px] mt-10 w-[200px] flex justify-center items-center rounded-2xl text-white font-bold bg-green-700"
         >
           <button className="explorebutton text-[30px]">
             {" "}
-            Explore <i className="fa-solid fa-arrow-right"></i>{" "}
+            Explore <i className="fa-solid fa-arrow-right"></i>
           </button>
         </motion.div>
       </div>
