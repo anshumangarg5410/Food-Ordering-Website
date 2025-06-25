@@ -12,7 +12,15 @@ function App() {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<LandingPage />} />
+        <Route path='landingpage' element={<LandingPage/>}/>
         <Route path='home' element={<Home/>}/>
+        <Route path='explore' element={<Home/>}/>
+        <Route path='cart' element={<Home/>}/>
+        <Route path='account' element={<Home/>}/>
+        <Route path='contactus' element={<Home/>}/>
+        <Route path='aboutus' element={<Home/>}/>
+        <Route path='login' element={<Home/>}/>
+        <Route path='signin' element={<Home/>}/>
       </Route>
     </Routes>
   );
