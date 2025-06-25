@@ -4,8 +4,8 @@ import { CiHeart } from "react-icons/ci";
 import { IoStarSharp } from "react-icons/io5";
 import { motion } from "motion/react";
 
-function Burger({ burger1image, burgername, burgersubtext, bwidth }) {
-  const [heart, setheartyes] = useState(false);
+function Burger({ burger1image, burgername, burgersubtext }) {
+  const [heart, setHeartYes] = useState(false);
 
   return (
     <motion.div
@@ -13,48 +13,49 @@ function Burger({ burger1image, burgername, burgersubtext, bwidth }) {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.1 }}
       viewport={{ once: true, amount: 0.2 }}
-      className={`card1 h-[90%] w-[300px] rounded-md border-[2px] border-gray-400 flex-shrink-0`}
+      className="card1 flex-shrink-0 w-[250px] sm:w-[280px] md:w-[300px] h-[380px] bg-white/5 backdrop-blur-md border border-gray-400 rounded-lg text-white"
     >
       <div
-        className="image bg-green-500 h-[58%] w-full bg-cover bg-no-repeat bg-center"
+        className="image h-[55%] bg-cover bg-center rounded-t-lg"
         style={burger1image}
       ></div>
 
-      <div className="rating h-[10%] w-full flex justify-between items-center">
-        <div className="stars flex gap-[2px] px-2 text-yellow-300">
-          <IoStarSharp className="text-[20px]" />
-          <IoStarSharp className="text-[20px]" />
-          <IoStarSharp className="text-[20px]" />
-          <IoStarSharp className="text-[20px]" />
+      <div className="px-3 py-2">
+        <div className="rating flex justify-between items-center mb-1">
+          <div className="stars flex gap-1 text-yellow-300">
+            {[...Array(4)].map((_, i) => (
+              <IoStarSharp key={i} className="text-[18px]" />
+            ))}
+          </div>
+          <div className="heart">
+            {heart ? (
+              <FaHeart
+                className="text-[18px] text-pink-400 cursor-pointer"
+                onClick={() => setHeartYes(!heart)}
+              />
+            ) : (
+              <CiHeart
+                className="text-[18px] cursor-pointer"
+                onClick={() => setHeartYes(!heart)}
+              />
+            )}
+          </div>
         </div>
-        <div className="heart font-bold text-gray-400 px-4">
-          {heart ? (
-            <FaHeart
-              className="text-[20px] text-pink-400 cursor-pointer"
-              onClick={() => setheartyes(!heart)}
-            />
-          ) : (
-            <CiHeart
-              className="text-[20px] cursor-pointer"
-              onClick={() => setheartyes(!heart)}
-            />
-          )}
-        </div>
-      </div>
 
-      <div className="header  h-[8%] text-[20px] font-semibold font-mono flex px-2 py-1 justify-start items-center w-full">
-        {burgername}
-      </div>
-      <div className="subheader h-[12%] text-[10px] font-sans flex justify-start px-2 py-1 items-center w-full">
-        {burgersubtext}
-      </div>
-
-      <div className="sellcart px-2  h-[12%] w-full  flex justify-between items-center">
-        <div className="price h-[75%] rounded-md w-[65px] bg-yellow-800 flex justify-center items-center font-mono font-bold text-yellow-600">
-          Free
+        <div className="header font-semibold text-[16px] md:text-[18px] mb-1">
+          {burgername}
         </div>
-        <div className="addtocart h-[75%] rounded-md w-[130px] bg-yellow-600  flex justify-center items-center font-mono font-bold text-black cursor-pointer">
-          Add to Cart
+        <div className="subheader text-sm text-gray-300 mb-3 font-mono">
+          {burgersubtext}
+        </div>
+
+        <div className="flex justify-between items-center">
+          <div className="price bg-yellow-800 px-4 py-1 rounded text-yellow-100 text-sm font-bold">
+            Free
+          </div>
+          <div className="addtocart bg-yellow-500 px-4 py-1 rounded text-black font-bold text-sm cursor-pointer hover:bg-yellow-600">
+            Add to Cart
+          </div>
         </div>
       </div>
     </motion.div>

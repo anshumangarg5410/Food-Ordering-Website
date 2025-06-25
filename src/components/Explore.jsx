@@ -1,49 +1,47 @@
 import React from "react";
 import { motion } from "motion/react";
 import cyclepic from "../assets/cycle.png";
-// import bg from "../assets/2323.avif";
 import bg from "../assets/2121.jpg";
 
 function Explore() {
   const cycleimage = { backgroundImage: `url(${cyclepic})` };
-
   const bgg = { backgroundImage: `url(${bg})` };
 
   return (
     <div
-      className="section2 w-full h-[60vh] flex justify-center items-center bg-cover bg-no-repeat"
+      className="section2 w-full min-h-[80vh] flex flex-col md:flex-row justify-center items-center bg-cover bg-no-repeat bg-center px-4 md:px-10 py-10 gap-10"
       style={bgg}
     >
-      <div className="text_heading flex flex-col h-[80%] w-[49%] justify-start items-start">
-        <motion.p1
+      <div className="text_heading flex flex-col w-full md:w-[50%] justify-start items-start">
+        <motion.p
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
           viewport={{ once: true, amount: 0.2 }}
-          className="font-mono text-[50px] font-bold mt-10 text-green-700"
+          className="font-mono text-[32px] md:text-[45px] font-bold text-green-700"
         >
-          Explore your favourate city food.
-        </motion.p1>
-        <motion.p2
+          Explore your favourite city food.
+        </motion.p>
+
+        <motion.p
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true, amount: 0.2 }}
-          className="black_to_white font-mono text-[15px] mt-4 font-bold text-green-700"
+          className="black_to_white font-mono text-[14px] md:text-[16px] mt-4 font-semibold text-green-700"
         >
-          Maximum of the restaurants avaliable here, let it be cuisines,
-          beverages, chinese, japanese etc...
-        </motion.p2>
+          Maximum of the restaurants available here, let it be cuisines,
+          beverages, Chinese, Japanese etc...
+        </motion.p>
 
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
           viewport={{ once: true, amount: 0.2 }}
-          className="explorebuttonn hover:bg-green-900 transition-all ease-in-out cursor-pointer h-[60px] mt-10 w-[200px] flex justify-center items-center rounded-2xl text-white font-bold bg-green-700"
+          className="explorebuttonn hover:bg-green-900 transition-all ease-in-out cursor-pointer h-[50px] w-[160px] mt-8 flex justify-center items-center rounded-xl text-white font-bold bg-green-700"
         >
-          <button className="explorebutton text-[30px]">
-            {" "}
+          <button className="text-[18px] md:text-[22px]">
             Explore <i className="fa-solid fa-arrow-right"></i>
           </button>
         </motion.div>
@@ -54,7 +52,7 @@ function Explore() {
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.6, delay: 0.4 }}
         viewport={{ once: true, amount: 0.2 }}
-        className="cycle_asset h-[80%] w-[40%] bg-contain bg-no-repeat"
+        className="cycle_asset w-full md:w-[40%] h-[300px] md:h-[400px] bg-contain bg-no-repeat bg-center"
         style={cycleimage}
       ></motion.div>
     </div>
