@@ -1,12 +1,16 @@
 import React from "react";
-import image from "../assets/burger.png";
 import { motion } from "motion/react"
+import backg from "../assets/bg9.jpg";
 
 function Home() {
-  const burgerbg = { backgroundImage: `url(${image})` };
+
+  const bg = {
+    backgroundImage: `url(${backg})`,
+  };
+
   return (
-    <div className="w-screen h-[87vh] flex justify-evenly items-center">
-      <motion.div className="header h-[100%] w-[50%] flex flex-col justify-center items-center mt-[120px]"
+    <div className="w-screen h-[100vh] flex justify-evenly items-center bg-center bg-no-repeat bg-cover" style={bg}>
+      <motion.div className="header h-[100%] w-[50%] flex flex-col justify-center items-center"
         initial={{
             x:-1000
         }}

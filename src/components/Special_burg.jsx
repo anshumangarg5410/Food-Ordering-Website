@@ -1,5 +1,5 @@
 import React from "react";
-import bg from "../assets/bgwhite.jpg";
+import bg from "../assets/bgwb.jpg";
 import { CiHeart } from "react-icons/ci";
 import { RiHandHeartFill } from "react-icons/ri";
 import { IoStarSharp } from "react-icons/io5";
