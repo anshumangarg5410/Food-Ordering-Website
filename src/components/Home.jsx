@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "motion/react"
 import backg from "../assets/bg9.jpg";
+import { NavLink } from "react-router-dom";
 
 function Home() {
 
@@ -31,12 +32,16 @@ function Home() {
           Anywhere Anytime!!{" "}
         </p>
         <div className="h-[100px] w-[80%] flex justify-evenly items-center">
-          <div className="h-[60px] w-[50%] cursor-pointer hover:brightness-50 transition-all ease-in-out bg-yellow-600 mt-10 rounded-l-lg flex justify-center items-center text-[30px] font-bold font-mono ">
+          <NavLink to="/ordernow" className={`w-[50%]`}>
+          <div className="h-[60px] w-full cursor-pointer hover:brightness-50 transition-all ease-in-out bg-yellow-600 mt-10 rounded-l-lg flex justify-center items-center text-[30px] font-bold font-mono ">
             <p>Order Now</p>
           </div>
-          <div className="h-[60px] w-[50%] cursor-pointer hover:brightness-50 transition-all ease-in-out bg-orange-500 mt-10 rounded-r-lg flex justify-center items-center text-[30px] font-bold font-mono ">
+          </NavLink>
+          <NavLink to="/login" className={`w-[50%]`}>
+          <div className="h-[60px] w-full cursor-pointer hover:brightness-50 transition-all ease-in-out bg-orange-500 mt-10 rounded-r-lg flex justify-center items-center text-[30px] font-bold font-mono ">
             <p>Log In</p>
           </div>
+          </NavLink>
         </div>
       </motion.div>
       <div className="pic h-[80%] w-[40%]"></div>
