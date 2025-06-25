@@ -9,7 +9,7 @@ import store from "./app/store.js";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <BrowserRouter basename="/Food-Ordering-Website">
+    <BrowserRouter>
     <Provider store = {store}>
       <App />
     </Provider>
