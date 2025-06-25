@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "motion/react";
 import cyclepic from "../assets/cycle.png";
 import bg from "../assets/2121.jpg";
+import { NavLink } from "react-router-dom";
 
 function Explore() {
   const cycleimage = { backgroundImage: `url(${cyclepic})` };
@@ -33,7 +34,7 @@ function Explore() {
           Maximum of the restaurants available here, let it be cuisines,
           beverages, Chinese, Japanese etc...
         </motion.p>
-
+<NavLink to="/explore">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -41,10 +42,13 @@ function Explore() {
           viewport={{ once: true, amount: 0.2 }}
           className="explorebuttonn hover:bg-green-900 transition-all ease-in-out cursor-pointer h-[50px] w-[160px] mt-8 flex justify-center items-center rounded-xl text-white font-bold bg-green-700"
         >
+          
           <button className="text-[18px] md:text-[22px]">
             Explore <i className="fa-solid fa-arrow-right"></i>
           </button>
+          
         </motion.div>
+        </NavLink>
       </div>
 
       <motion.div

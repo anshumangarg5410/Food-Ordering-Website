@@ -11,6 +11,7 @@ import AboutUs from "./pages/Aboutus";
 import Cart from "./pages/cart/Cart";
 import LogIn from "./pages/login/LogIn"
 import SignUp from "./pages/signup/SignUp"
+import ExploreShop from "./pages/explore/ExploreShop"
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
         <Route index element={<LandingPage />} />
         <Route path='landingpage' element={<LandingPage/>}/>
         <Route path='home' element={<Home/>}/>
-        <Route path='explore' element={<Home/>}/>
+        <Route path='explore' element={<ExploreShop/>}/>
         <Route path='cart' element={<Cart/>}/>
         <Route path='account' element={<Home/>}/>
         <Route path='contactus' element={<Contact/>}/>

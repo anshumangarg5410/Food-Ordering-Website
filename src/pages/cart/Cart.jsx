@@ -1,25 +1,18 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useSelector } from "react-redux";
 
 function Cart() {
-  const cartItems = [
-    {
-      id: 1,
-      name: "Cheesy Mama Burger",
-      price: 129,
-      qty: 2,
-      image: "/images/burger1.png", // adjust path as per your assets
-    },
-    {
-      id: 2,
-      name: "Spicy Fries",
-      price: 89,
-      qty: 1,
-      image: "/images/fries.png",
-    },
-  ];
 
-  const total = cartItems.reduce((acc, item) => acc + item.price * item.qty, 0);
+  const cartItems = useSelector((state) => state.cart.cart);
+
+  const totalprice = () => {
+    let total = 0;
+    cartItems.map((item) => {
+      total += item.singleprice * item.quantity;
+    })
+    return total;
+  }
 
   return (
     <div className="min-h-screen pt-[20vh] pb-20 px-6 md:px-20 bg-gradient-to-br from-yellow-100 via-orange-50 to-yellow-100">
@@ -33,6 +26,7 @@ function Cart() {
       </motion.h1>
 
       <div className="max-w-4xl mx-auto space-y-6">
+
         {cartItems.map((item) => (
           <motion.div
             key={item.id}
@@ -49,12 +43,13 @@ function Cart() {
               />
               <div>
                 <h2 className="text-xl font-semibold text-yellow-700">{item.name}</h2>
-                <p className="text-sm text-gray-600">Qty: {item.qty}</p>
+                <p className="text-sm text-gray-600">Qty: {item.quantity}</p>
               </div>
             </div>
-            <p className="text-lg font-bold text-orange-600">₹{item.price * item.qty}</p>
+            <p className="text-lg font-bold text-orange-600">₹{item.singleprice * item.quantity}</p>
           </motion.div>
         ))}
+
 
         <motion.div
           className="bg-yellow-200 rounded-xl shadow-inner p-6 flex justify-between items-center"
@@ -63,7 +58,7 @@ function Cart() {
           transition={{ delay: 0.3, duration: 0.4 }}
         >
           <h3 className="text-xl font-semibold">Total</h3>
-          <span className="text-2xl font-bold text-orange-700">₹{total}</span>
+          <span className="text-2xl font-bold text-orange-700">₹{totalprice()}</span>
         </motion.div>
 
         <motion.button
