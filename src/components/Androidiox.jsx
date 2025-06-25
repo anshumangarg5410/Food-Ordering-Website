@@ -13,10 +13,10 @@ function Androidiox() {
 
   return (
     <div
-      className="h-[80vh] w-full flex justify-center gap-[60px] items-center bg-no-repeat bg-cover bg-center"
+      className="h-[40vh] md:h-[80vh] w-full flex justify-center gap-[60px] items-center bg-no-repeat bg-cover bg-center"
       style={yellowbg}
     >
-      <div className="div1 flex h-[80%] w-[40%] flex-col justify-center items-center">
+      <div className="div1 flex h-[40%] md:h-[80%] w-[40%] flex-col justify-center items-center">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -24,8 +24,8 @@ function Androidiox() {
           viewport={{ once: true, amount: 0.2 }}
           className="header1 flex w-full flex-col justify-center items-center "
         >
-          <p className="font-bold text-[60px] text-white">Available for both</p>
-          <p className="font-bold text-[60px] text-white">Android and IOS</p>
+          <p className="font-bold text-[20px] md:text-[60px] text-white">Android and IOS</p>
+          <p className="font-bold text-[20px] md:text-[60px] text-white">Available for both</p>
         </motion.div>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -35,11 +35,11 @@ function Androidiox() {
           className="subhead h-[40%] w-full flex justify-center items-center"
         >
           <div
-            className="and w-full h-[40%] bg-contain bg-no-repeat bg-center"
+            className="and w-[200px] md:w-[280px] h-[50px] md:h-[100px] bg-contain bg-no-repeat bg-center"
             style={anddow}
           ></div>
           <div
-            className="ios w-full h-[35%] bg-contain bg-no-repeat bg-center"
+            className="ios w-[160px] md:w-[250px] h-[30px] md:h-[82px] bg-contain bg-no-repeat bg-center"
             style={iosdow}
           ></div>
         </motion.div>
