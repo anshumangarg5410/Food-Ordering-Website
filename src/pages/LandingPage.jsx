@@ -3,7 +3,7 @@ import Home from '../components/Home';
 import Explore from "../components/Explore";
 import Cards from "../components/Cards";
 import Special_burg from "../components/Special_burg";
-import Androidiox from "../components/androidiox";
+import Androidiox from "../components/Androidiox";
 
 function LandingPage() {
   return (
