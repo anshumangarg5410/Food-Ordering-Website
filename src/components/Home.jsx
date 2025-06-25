@@ -13,7 +13,6 @@ function Home() {
       className="w-screen min-h-screen flex flex-col md:flex-row justify-evenly items-center bg-center bg-no-repeat bg-cover px-6 md:px-20"
       style={bg}
     >
-      {/* Left Text Content */}
       <motion.div
         className="w-full md:w-[50%] text-center md:text-left flex flex-col justify-center items-center md:items-start"
         initial={{ x: -300, opacity: 0 }}
@@ -30,12 +29,13 @@ function Home() {
           Anywhere, Anytime.
         </p>
 
-        {/* Buttons */}
         <div className="flex gap-4 w-full md:w-[80%] justify-center md:justify-start mt-10">
           <NavLink to="/ordernow" className="w-1/2">
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => alert("Zomato / Swiggy se krle !")}
+              
               className="h-[60px] w-full bg-yellow-500 hover:bg-yellow-600 text-white text-xl md:text-2xl font-bold font-mono rounded-xl flex justify-center items-center shadow-lg"
             >
               Order Now
@@ -54,14 +54,12 @@ function Home() {
         </div>
       </motion.div>
 
-      {/* Optional Right Image / Illustration */}
       <motion.div
         className="hidden md:block w-[40%] h-[80%] bg-no-repeat bg-center bg-contain"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.8 }}
       >
-        {/* You can add a burger/chef SVG here or a mascot */}
       </motion.div>
     </div>
   );
