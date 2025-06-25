@@ -7,7 +7,7 @@ import "./index.css";
 import "./App.css";
 import Home from "./components/Home";
 import Contact from "./pages/Contact";
-import AboutUs from "./pages/Aboutus";
+import AboutUs from "./pages/AboutUs";
 import Cart from "./pages/cart/Cart";
 import LogIn from "./pages/login/LogIn"
 import SignUp from "./pages/signup/SignUp"

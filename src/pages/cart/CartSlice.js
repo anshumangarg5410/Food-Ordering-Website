@@ -2,14 +2,14 @@ import { createSlice, nanoid } from "@reduxjs/toolkit";
 import burgerImg from "../../assets/burger.png"; 
 const initialState = {
   cart: [
-    {
-      id: 1,
-      image: burgerImg,
-      name: "Burger",
-      singleprice: 200,
-      quantity: 2,
-      totalprice: 200 * 2, 
-    },
+    // {
+    //   id: 1,
+    //   image: burgerImg,
+    //   name: "Burger",
+    //   singleprice: 200,
+    //   quantity: 2,
+    //   totalprice: 200 * 2, 
+    // },
   ],
 };
 
