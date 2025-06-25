@@ -4,7 +4,7 @@ import { CiHeart } from "react-icons/ci";
 import { IoStarSharp } from "react-icons/io5";
 import { motion } from "motion/react";
 
-function Burger({ burger1image, burgername, burgersubtext }) {
+function Burger({ burger1image, burgername, burgersubtext, bwidth }) {
   const [heart, setheartyes] = useState(false);
 
   return (
@@ -13,7 +13,7 @@ function Burger({ burger1image, burgername, burgersubtext }) {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.1 }}
       viewport={{ once: true, amount: 0.2 }}
-      className="card1 h-[90%] w-[20%] rounded-md border-[2px] border-gray-400"
+      className={`card1 h-[90%] w-[300px] rounded-md border-[2px] border-gray-400 flex-shrink-0`}
     >
       <div
         className="image bg-green-500 h-[58%] w-full bg-cover bg-no-repeat bg-center"

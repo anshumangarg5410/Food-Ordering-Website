@@ -11,6 +11,44 @@ function Special_burg() {
   const bgg = { backgroundImage: `url(${bg})` };
   const burger1image = { backgroundImage: `url(${burger1})` };
 
+  
+
+  const row1burgers = [
+    {
+      burgerimage: burger1image,
+      title: "Mota krne wala burger ",
+      descp: "Khao isse healthy samaj ke and ho jayo mote bhais ke jaise Hehehe"
+    },
+    {
+      burgerimage: burger1image,
+      title: "Mota krne wala burger ",
+      descp: "Khao isse healthy samaj ke and ho jayo mote bhais ke jaise Hehehe"
+    },
+    {
+      burgerimage: burger1image,
+      title: "Mota krne wala burger ",
+      descp: "Khao isse healthy samaj ke and ho jayo mote bhais ke jaise Hehehe"
+    }
+  ]
+
+    const row2burgers = [
+    {
+      burgerimage: burger1image,
+      title: "Mota krne wala burger ",
+      descp: "Khao isse healthy samaj ke and ho jayo mote bhais ke jaise Hehehe"
+    },
+    {
+      burgerimage: burger1image,
+      title: "Mota krne wala burger ",
+      descp: "Khao isse healthy samaj ke and ho jayo mote bhais ke jaise Hehehe"
+    },
+    {
+      burgerimage: burger1image,
+      title: "Mota krne wala burger ",
+      descp: "Khao isse healthy samaj ke and ho jayo mote bhais ke jaise Hehehe"
+    }
+  ]
+
   return (
     <div
       className="section2 w-full h-[150vh] flex flex-col justify-start items-center bg-cover bg-no-repeat"
@@ -23,19 +61,19 @@ function Special_burg() {
         </div>
 
         <div className="burgers w-full h-[85%] flex flex-col justify-center items-center py-5">
-            <div className="row1 h-[50%] w-full flex justify-evenly items-center">
+            <div className="row1 h-[50%] w-[80%] flex justify-evenly items-center space-x-6 overflow-x-auto">
 
-                <Burger burger1image={burger1image} burgername={"Mota krne wala burger "} burgersubtext={"Khao isse healthy samaj ke and ho jayo mote bhais ke jaise Hehehe"}/>
-                <Burger burger1image={burger1image} burgername={"Mota krne wala burger "} burgersubtext={"Khao isse healthy samaj ke and ho jayo mote bhais ke jaise Hehehe"}/>
-                <Burger burger1image={burger1image} burgername={"Mota krne wala burger "} burgersubtext={"Khao isse healthy samaj ke and ho jayo mote bhais ke jaise Hehehe"}/>
-   
+              { row1burgers.map(({burgerimage, title, descp}, index) => (
+                <Burger burger1image={burgerimage} burgername={title} burgersubtext={descp}/>
+              ))}
+
             </div>
 
-            <div className="row1 h-[50%] w-full flex justify-evenly items-center">
+            <div className="row1 h-[50%] w-[80%] flex justify-evenly items-center space-x-6 overflow-x-auto">
 
-                <Burger burger1image={burger1image} burgername={"Mota krne wala burger "} burgersubtext={"Khao isse healthy samaj ke and ho jayo mote bhais ke jaise Hehehe"}/>
-                <Burger burger1image={burger1image} burgername={"Mota krne wala burger "} burgersubtext={"Khao isse healthy samaj ke and ho jayo mote bhais ke jaise Hehehe"}/>
-                <Burger burger1image={burger1image} burgername={"Mota krne wala burger "} burgersubtext={"Khao isse healthy samaj ke and ho jayo mote bhais ke jaise Hehehe"}/>
+              { row2burgers.map(({burgerimage, title, descp}, index) => (
+                <Burger burger1image={burgerimage} burgername={title} burgersubtext={descp}/>
+              ))}
 
             </div>
 

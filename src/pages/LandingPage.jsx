@@ -1,9 +1,9 @@
 import React from "react";
-import Home from "./Home";
-import Explore from "./Explore";
-import Cards from "./Cards";
-import Special_burg from "./Special_burg";
-import Androidiox from "./androidiox";
+import Home from '../components/Home';
+import Explore from "../components/Explore";
+import Cards from "../components/Cards";
+import Special_burg from "../components/Special_burg";
+import Androidiox from "../components/androidiox";
 
 function LandingPage() {
   return (
