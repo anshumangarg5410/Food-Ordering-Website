@@ -1,11 +1,14 @@
 import React from "react";
 import bg from "../assets/bgwb.jpg";
-import burger1 from "../assets/burgers/Crispy_Veg_Burger.avif";
+import burger1 from "../assets/burgers/transburger.png";
 import Burger from "./Burger";
 
 function Special_burg() {
   const bgg = { backgroundImage: `url(${bg})` };
   const burger1image = { backgroundImage: `url(${burger1})` };
+  const burger2image = { backgroundImage: `url(${burger1})` };
+  const burger3image = { backgroundImage: `url(${burger1})` };
+
 
   const burgers = [
     {
@@ -14,12 +17,12 @@ function Special_burg() {
       descp: "Khao isse healthy samaj ke and ho jayo mote bhais ke jaise Hehehe",
     },
     {
-      burgerimage: burger1image,
+      burgerimage: burger2image,
       title: "Burger Bomb",
       descp: "Explode your taste buds with cheesy madness!",
     },
     {
-      burgerimage: burger1image,
+      burgerimage: burger3image,
       title: "Bhai ka Burger",
       descp: "Pura bhai style — zyada spicy, zyada crispy!",
     },
