@@ -16,7 +16,7 @@ function Burger({ burger1image, burgername, burgersubtext }) {
       className="card1 flex-shrink-0 w-[250px] sm:w-[280px] md:w-[300px] h-[380px] bg-white/5 backdrop-blur-md border border-gray-400 rounded-lg text-white"
     >
       <div
-        className="image h-[55%] bg-cover bg-center rounded-t-lg"
+        className="image h-[55%] bg-contain bg-center bg-no-repeat rounded-t-lg"
         style={burger1image}
       ></div>
 

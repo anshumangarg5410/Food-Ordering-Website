@@ -1,6 +1,6 @@
 import React from "react";
 import bg from "../assets/bgwb.jpg";
-import burger1 from "../assets/burgers/1.webp";
+import burger1 from "../assets/burgers/Crispy_Veg_Burger.avif";
 import Burger from "./Burger";
 
 function Special_burg() {
