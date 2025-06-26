@@ -47,7 +47,8 @@ function Cart() {
   const orderplace = () => {
     setorderplaced(!orderplaced);
     dispatch(clearCart())
-    dispatch(incrementorders())
+    if (cart.length > 0) dispatch(incrementorders())
+    else alert("Bhai kuch add to krde .. khali plate ghar pe bhej du kya!!")
   }
 
   useEffect(() => {
