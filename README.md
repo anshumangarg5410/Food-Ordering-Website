@@ -1,10 +1,9 @@
 # 🍕 Mama's Kitchen – Food Ordering Website
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)  
-[![Made with React](https://img.shields.io/badge/Made%20with-React-blue)](https://reactjs.org/)  
-[![React Router](https://img.shields.io/badge/Routing-React%20Router-CA4245)](https://reactrouter.com/)  
-[![Redux Toolkit](https://img.shields.io/badge/State%20Management-Redux%20Toolkit-764abc)](https://redux-toolkit.js.org/)  
-[![Tailwind CSS](https://img.shields.io/badge/Styled%20with-TailwindCSS-38B2AC.svg?logo=tailwindcss)](https://tailwindcss.com/)  
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)  [![Made with React](https://img.shields.io/badge/Made%20with-React-blue)](https://reactjs.org/)  [![React Router](https://img.shields.io/badge/Routing-React%20Router-CA4245)](https://reactrouter.com/)  [![Redux Toolkit](https://img.shields.io/badge/State%20Management-Redux%20Toolkit-764abc)](https://redux-toolkit.js.org/)  [![Tailwind CSS](https://img.shields.io/badge/Styled%20with-TailwindCSS-38B2AC.svg?logo=tailwindcss)](https://tailwindcss.com/)  
+  
+
+
 
 **Mama’s Kitchen** is a fully responsive and dynamic **food ordering web app**, built using modern frontend tools. It provides users a seamless experience to browse food, manage a cart, and prepare orders — all with smooth transitions and state syncing.
 
