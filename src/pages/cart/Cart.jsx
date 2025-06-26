@@ -45,9 +45,11 @@ function Cart() {
   const [orderplaced, setorderplaced] = useState(false)
 
   const orderplace = () => {
-    setorderplaced(!orderplaced);
-    dispatch(clearCart())
-    if (cart.length > 0) dispatch(incrementorders())
+    if (cart.length > 0) {
+      dispatch(clearCart())
+      dispatch(incrementorders())
+      setorderplaced(!orderplaced);
+    }
     else alert("Bhai kuch add to krde .. khali plate ghar pe bhej du kya!!")
   }
 
