@@ -58,11 +58,7 @@ function Cart() {
 
   return (
     <>
-    {orderplaced ?
-    <div className="h-[100vh] w-[100vw] bg-[rgb(0,0,0,0.5)] z-[9999999999999]">
-     <OrderPlaces/> 
-     </div>
-     : ""}
+    {orderplaced ?<OrderPlaces/> : ""}
 
     <div className="min-h-screen pt-[20vh] pb-20 px-6 md:px-20 bg-gradient-to-br from-yellow-100 via-orange-50 to-yellow-100">
       <motion.h1
