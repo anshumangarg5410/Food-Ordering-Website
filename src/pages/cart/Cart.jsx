@@ -54,11 +54,22 @@ function Cart() {
     setTimeout(() => {
       setorderplaced(false)
     }, 5000);
+    if (orderplaced) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto"; 
+    }
   }, [orderplaced])
 
   return (
     <>
-    {orderplaced ?<OrderPlaces/> : ""}
+    
+    {orderplaced ?
+    <div className="h-screen w-screen bg-[rgb(0,0,0,0.6)] absolute z-[999999999999999]">
+    <OrderPlaces/> 
+        </div>
+    : ""}
+
 
     <div className="min-h-screen pt-[20vh] pb-20 px-6 md:px-20 bg-gradient-to-br from-yellow-100 via-orange-50 to-yellow-100">
       <motion.h1
