@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { motion } from "framer-motion";
 import { IoStarSharp } from "react-icons/io5";
 import { useDispatch, useSelector } from 'react-redux';
-import { addItem, increaseqnt } from '../cart/CartSlice';
+import { addItem, increaseqnt, decreaseqnt, deleteitem } from '../cart/CartSlice';
+import { IoIosAddCircle } from "react-icons/io";
+import { GrSubtractCircle } from "react-icons/gr";
 
 // const { name, singleprice, quantity } = action.payload;
 
@@ -11,7 +13,12 @@ function Card({ title, desc, price, rating, image, index }) {
   const cart = useSelector((state) => state.cart.cart)
   const [qnt, setqnt] = useState(0);
 
-
+  useEffect(() => {
+    const existingItem = cart.find((item) => item.name === title);
+    if (existingItem) {
+      setqnt(existingItem.quantity);
+    }
+  }, [cart, title]);
 
 const addtocart = () => {
   const it = cart.find((item) => item.name === title);
@@ -34,6 +41,20 @@ const addtocart = () => {
   }
 };
 
+const removefromcart = () => {
+  const it = cart.find((item) => item.name === title);
+
+  if (it && it.quantity > 1) {
+    dispatch(decreaseqnt({ id: it.id }));
+    setqnt(it.quantity - 1);
+    console.log("dec")
+  } 
+  else if (it && it.quantity == 1) {
+    dispatch(deleteitem(it.id))
+    setqnt(0);
+  }
+};
+
   return (
               <motion.div
                 key={index}
@@ -48,7 +69,10 @@ const addtocart = () => {
                   style={{ backgroundImage: `url(${image})` }}
                 ></div>
                 <div className="p-4 flex flex-col justify-between h-[200px]">
-                  <h3 className="text-lg font-bold text-gray-800">{title}</h3>
+                  <div className="text-lg font-bold flex justify-between items-center text-gray-800">
+                    <p>{title}</p>
+                    <p className='text-green-700'>{qnt}</p>
+                  </div>
                   <p className="text-sm text-gray-600 mt-1 mb-2">{desc}</p>
 
                   <div className="flex items-center gap-1 text-yellow-500">
@@ -57,11 +81,12 @@ const addtocart = () => {
                     ))}
                   </div>
 
-                  <div className="flex justify-between items-center mt-auto">
+                  <div className="flex justify-between items-center mt-auto h-[40px]">
                     <span className="text-green-700 font-semibold">{price}</span>
-                    <button onClick={addtocart}  className="bg-green-600 text-white px-3 py-1 rounded-md hover:bg-green-700 transition">
+                    <button   className="bg-green-600 flex text-white px-3 py-1 rounded-md hover:bg-green-700 transition">
+                    <div onClick={removefromcart}  className=' h-[25px] flex justify-center items-center w-[22px] mr-[10px] text-[18px] hover:scale-125 transition-all ease-out hover:text-red-400'><GrSubtractCircle /></div>     
                       Add
-                      {/* <span className='bg-red-400 ml-[15px] mr-[10px]'>{1}</span> */}
+                      <div onClick={addtocart} className=' h-[25px] flex justify-center items-center w-[22px] ml-[10px] text-[20px] hover:scale-125 transition-all ease-out hover:text-green-400'><IoIosAddCircle /></div>
                     </button>
                     
                   </div>
