@@ -44,8 +44,8 @@ To run Mama's Kitchen on your local machine:
 
 ```bash
 # Clone the repository
-git clone https://github.com/anshumangarg5410/mamas-kitchen.git
-cd mamas-kitchen
+git clone https://github.com/anshumangarg5410/food-ordering-website.git
+cd food-ordering-website
 
 # Install dependencies
 npm install
