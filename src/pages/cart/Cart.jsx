@@ -6,9 +6,12 @@ import {
   increaseqnt,
   decreaseqnt,
   deleteitem,
+  clearCart,
+  incrementorders,
 } from "../cart/CartSlice";
 import { IoIosAddCircle } from "react-icons/io";
 import { GrSubtractCircle } from "react-icons/gr";
+import OrderPlaces from "./OrderPlaces";
 
 function Cart() {
   const dispatch = useDispatch();
@@ -38,8 +41,29 @@ function Cart() {
     });
     return total;
   };
+ 
+  const [orderplaced, setorderplaced] = useState(false)
+
+  const orderplace = () => {
+    setorderplaced(!orderplaced);
+    dispatch(clearCart())
+    dispatch(incrementorders())
+  }
+
+  useEffect(() => {
+    setTimeout(() => {
+      setorderplaced(false)
+    }, 5000);
+  }, [orderplaced])
 
   return (
+    <>
+    {orderplaced ?
+    <div className="h-[100vh] w-[100vw] bg-[rgb(0,0,0,0.5)] z-[9999999999999]">
+     <OrderPlaces/> 
+     </div>
+     : ""}
+
     <div className="min-h-screen pt-[20vh] pb-20 px-6 md:px-20 bg-gradient-to-br from-yellow-100 via-orange-50 to-yellow-100">
       <motion.h1
         className="text-4xl font-bold text-center text-yellow-800 mb-10"
@@ -108,11 +132,13 @@ function Cart() {
           className="mt-6 w-full py-3 text-xl bg-yellow-600 hover:bg-yellow-700 text-white font-bold rounded-xl transition-all"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
+          onClick={() => orderplace()}
         >
           Place Your Order
         </motion.button>
       </div>
     </div>
+    </>
   );
 }
 

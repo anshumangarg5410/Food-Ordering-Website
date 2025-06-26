@@ -4,13 +4,18 @@ import { motion } from "framer-motion";
 import { MdEmail, MdLocationOn, MdLogout } from "react-icons/md";
 import { FaUserAlt } from "react-icons/fa";
 import { BsFillBoxSeamFill } from "react-icons/bs";
+import { useSelector } from "react-redux";
 
 function Account() {
+
+    const orders = useSelector((state) => state.cart.orders)
+    console.log(orders)
+
   const user = {
     name: "Anshuman Garg",
     email: "anshumangarg5410@gmail.com",
     location: "Chandigarh, India",
-    orders: 0,
+    orders: orders,
   };
 
   return (

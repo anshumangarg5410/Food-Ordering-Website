@@ -20,6 +20,7 @@ const initialState = {
     //   totalprice: 200 * 2, 
     // },
   ],
+  orders: 0,
 };
 
 export const CartSlice = createSlice({
@@ -60,12 +61,15 @@ export const CartSlice = createSlice({
     deleteitem: (state, action) => {
         state.cart = state.cart.filter((item) => item.id != action.payload)
     },
-
-
-
+    clearCart: (state) => {
+      state.cart = [];
+    },
+    incrementorders: (state) => {
+      state.orders = state.orders + 1
+    }
   },
 });
 
-export const { addItem, increaseqnt, deleteitem, decreaseqnt } = CartSlice.actions;
+export const { addItem, increaseqnt, deleteitem, decreaseqnt, clearCart, incrementorders } = CartSlice.actions;
 
 export default CartSlice.reducer;
