@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>We'll Be Back... Probably</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    min-height: 100vh;
+    background: #0d0d0d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', sans-serif;
+    overflow: hidden;
+    color: #fff;
+  }
+
+  .stars {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .star {
+    position: absolute;
+    background: #fff;
+    border-radius: 50%;
+    animation: twinkle var(--d, 3s) infinite alternate ease-in-out;
+  }
+
+  @keyframes twinkle {
+    from { opacity: 0.1; transform: scale(0.8); }
+    to   { opacity: 0.9; transform: scale(1.2); }
+  }
+
+  .card {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 3.5rem 4rem;
+    max-width: 620px;
+    width: 90%;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 24px;
+    backdrop-filter: blur(12px);
+    animation: floatCard 5s ease-in-out infinite alternate;
+  }
+
+  @keyframes floatCard {
+    from { transform: translateY(0px); }
+    to   { transform: translateY(-12px); }
+  }
+
+  .emoji-big {
+    font-size: 72px;
+    display: block;
+    margin-bottom: 1rem;
+    animation: spinBounce 3s ease-in-out infinite;
+  }
+
+  @keyframes spinBounce {
+    0%   { transform: rotate(-8deg) scale(1); }
+    50%  { transform: rotate(8deg) scale(1.12); }
+    100% { transform: rotate(-8deg) scale(1); }
+  }
+
+  h1 {
+    font-size: 2.4rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    background: linear-gradient(135deg, #ff6ec7, #ffcc00, #00e0ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.75rem;
+  }
+
+  .subtitle {
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+
+  .progress-wrap {
+    background: rgba(255,255,255,0.08);
+    border-radius: 999px;
+    height: 12px;
+    overflow: hidden;
+    margin-bottom: 0.6rem;
+    position: relative;
+  }
+
+  .progress-bar {
+    height: 100%;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #ff6ec7, #ffcc00, #00e0ff);
+    width: 0%;
+    transition: width 0.4s ease;
+    position: relative;
+  }
+
+  .progress-bar::after {
+    content: '';
+    position: absolute;
+    right: 0; top: 0; bottom: 0;
+    width: 40px;
+    background: rgba(255,255,255,0.4);
+    border-radius: 999px;
+    animation: shimmer 1.2s infinite;
+  }
+
+  @keyframes shimmer {
+    from { opacity: 0.2; }
+    to   { opacity: 0.8; }
+  }
+
+  .progress-label {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.4);
+    text-align: right;
+    margin-bottom: 1.8rem;
+  }
+
+  .status-msg {
+    font-size: 0.9rem;
+    color: #ffcc00;
+    min-height: 1.5em;
+    font-style: italic;
+    margin-bottom: 2rem;
+    transition: opacity 0.4s;
+  }
+
+  .footer-note {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.25);
+    margin-top: 2rem;
+  }
+
+  .coffee-row {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 1rem;
+  }
+
+  .coffee {
+    font-size: 1.4rem;
+    animation: drinkCoffee 1.5s ease-in-out infinite alternate;
+  }
+
+  .coffee:nth-child(2) { animation-delay: 0.3s; }
+  .coffee:nth-child(3) { animation-delay: 0.6s; }
+
+  @keyframes drinkCoffee {
+    from { transform: translateY(0); opacity: 0.5; }
+    to   { transform: translateY(-6px); opacity: 1; }
+  }
+</style>
+</head>
+<body>
+
+<div class="stars" id="stars"></div>
+
+<div class="card">
+  <span class="emoji-big">🚧</span>
+  <h1>We'll Be Back!</h1>
+  <p class="subtitle">
+    Our website is currently getting a <strong style="color:#ff6ec7;">glow-up</strong>.<br/>
+    The dev team is doing their best, fuelled by coffee and sheer panic.
+  </p>
+
+  <div class="progress-wrap">
+    <div class="progress-bar" id="bar"></div>
+  </div>
+  <div class="progress-label" id="pct">0%</div>
+
+  <div class="status-msg" id="statusMsg">Initialising the vibes...</div>
+
+  <div class="coffee-row">
+    <span class="coffee">☕</span>
+    <span class="coffee">☕</span>
+    <span class="coffee">☕</span>
+  </div>
+
+  <p class="footer-note">No developers were harmed in the making of this update. Probably.</p>
+</div>
+
+<script>
+  const starsEl = document.getElementById('stars');
+  for (let i = 0; i < 90; i++) {
+    const s = document.createElement('div');
+    s.className = 'star';
+    const size = Math.random() * 2.5 + 0.5;
+    s.style.cssText = `
+      width:${size}px; height:${size}px;
+      left:${Math.random()*100}%;
+      top:${Math.random()*100}%;
+      --d:${(Math.random()*3+2).toFixed(1)}s;
+      animation-delay:${(Math.random()*4).toFixed(1)}s;
+    `;
+    starsEl.appendChild(s);
+  }
+
+  const messages = [
+    "Initialising the vibes...",
+    "Teaching the CSS to behave...",
+    "Negotiating with the database...",
+    "Untangling the spaghetti code...",
+    "Turning it off and back on again...",
+    "Googling 'how to fix website'...",
+    "Deleting node_modules (pray for us)...",
+    "Asking Stack Overflow for help...",
+    "Pretending we planned this all along...",
+    "Sprinkling fairy dust on the servers...",
+    "Blaming it on the intern...",
+    "Looking busy for the client...",
+    "Almost done... just kidding...",
+    "For real this time, almost done!",
+    "Done! Wait... nope. Almost.",
+    "Wrapping up! (We mean it this time)"
+  ];
+
+  let pct = 0;
+  let msgIdx = 0;
+  const bar = document.getElementById('bar');
+  const pctEl = document.getElementById('pct');
+  const statusEl = document.getElementById('statusMsg');
+
+  function tick() {
+    const step = Math.random() * 3 + 0.5;
+    pct = Math.min(pct + step, 99);
+    bar.style.width = pct + '%';
+    pctEl.textContent = Math.floor(pct) + '%';
+
+    if (msgIdx < messages.length - 1 && pct > (msgIdx + 1) * (100 / messages.length)) {
+      msgIdx++;
+      statusEl.style.opacity = '0';
+      setTimeout(() => {
+        statusEl.textContent = messages[msgIdx];
+        statusEl.style.opacity = '1';
+      }, 400);
+    }
+
+    const delay = pct < 80 ? 400 + Math.random() * 300 : 800 + Math.random() * 600;
+    setTimeout(tick, delay);
+  }
+
+  setTimeout(tick, 600);
+</script>
+
+</body>
+</html>
