@@ -7,37 +7,13 @@ import Androidiox from "../components/Androidiox";
 
 function LandingPage() {
   return (
-    <>
+    <div className="flex flex-col w-full overflow-hidden bg-brand-50 pb-20 space-y-12 md:space-y-24">
       <Home />
-
-      <div className="divider h-[80px] mt-[-40px] absolute w-full flex justify-center items-center">
-        <div className="circle h-[80px] w-[80px] rounded-full bg-[url('./assets/down_arrow.png')] bg-center bg-no-repeat bg-contain overflow-hidden  bg-yellow-300 "></div>
-      </div>
-
       <Explore />
-
-      <div className="divider h-[80px] mt-[-40px] absolute w-full flex justify-center items-center">
-        <div className="circle h-[80px] w-[80px] rounded-full bg-[url('./assets/down_arrow.png')] bg-center bg-no-repeat bg-contain overflow-hidden  bg-yellow-300 "></div>
-      </div>
-
       <Cards />
-
-      <div className="divider h-[80px] mt-[-40px] absolute w-full flex justify-center items-center">
-        <div className="circle h-[80px] w-[80px] rounded-full bg-[url('./assets/down_arrow.png')] bg-center bg-no-repeat bg-contain overflow-hidden  bg-yellow-300 "></div>
-      </div>
-
       <Special_burg />
-
-      <div className="divider h-[80px] mt-[-40px] absolute w-full flex justify-center items-center">
-        <div className="circle h-[80px] w-[80px] rounded-full bg-[url('./assets/down_arrow.png')] bg-center bg-no-repeat bg-contain overflow-hidden  bg-yellow-300 "></div>
-      </div>
-
       <Androidiox />
-
-      <div className="divider h-[80px] mt-[-40px] absolute w-full flex justify-center items-center">
-        <div className="circle h-[80px] w-[80px] rounded-full bg-[url('./assets/thumbsup.png')] bg-center bg-no-repeat bg-contain overflow-hidden  bg-yellow-300 "></div>
-      </div>
-    </>
+    </div>
   );
 }
 

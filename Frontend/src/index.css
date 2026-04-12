@@ -2,8 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-    height: 100vh;
-    width: 100vw;
-    background-color: #fff7e6; 
+@layer base {
+  body {
+    @apply bg-gray-50 text-gray-800 antialiased font-sans overflow-x-hidden;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }

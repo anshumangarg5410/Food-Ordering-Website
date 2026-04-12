@@ -189,21 +189,53 @@ const sections = [
 ];
 
 function ShopExplore() {
+  const filters = ["All", "Veg Only", "Bestsellers", "Spicy", "New Arrivals"];
+  const [activeFilter, setActiveFilter] = React.useState("All");
+
   return (
-    <div className="mt-[80px] w-full min-h-screen px-4 md:px-10 py-10 bg-[#f9f9f9] space-y-16">
-      <h1 className="text-[36px] md:text-[48px] font-bold font-mono text-green-700 text-center">
-        Explore Shop Categories
-      </h1>
+    <div className="pt-32 pb-24 w-full min-h-screen px-4 sm:px-6 lg:px-12 bg-gray-50 flex flex-col space-y-12 max-w-[1600px] mx-auto">
+      
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-4 mt-8">
+        <div>
+          <h1 className="text-4xl md:text-5xl font-display font-extrabold text-gray-900 tracking-tight">
+            Explore Menu
+          </h1>
+          <p className="text-gray-500 mt-2 text-lg">Find the best food curated just for you.</p>
+        </div>
+
+        <div className="flex gap-3 overflow-x-auto hide-scrollbar w-full md:w-auto pb-2">
+          {filters.map(filter => (
+            <button 
+              key={filter}
+              onClick={() => setActiveFilter(filter)}
+              className={`whitespace-nowrap px-5 py-2 rounded-full text-sm font-semibold transition-all border ${
+                activeFilter === filter 
+                  ? 'bg-gray-900 text-white border-gray-900 shadow-md' 
+                  : 'bg-white text-gray-600 border-gray-200 hover:border-gray-300 hover:bg-gray-50 shadow-sm'
+              }`}
+            >
+              {filter}
+            </button>
+          ))}
+        </div>
+      </div>
 
       {sections.map(({ title, items }, idx) => (
         <div key={idx} className="space-y-6">
-          <h2 className="text-[26px] md:text-[32px] font-bold font-mono text-gray-800">
-            {title}
-          </h2>
+          <div className="flex items-center justify-between border-b border-gray-200 pb-2">
+            <h2 className="text-2xl md:text-3xl font-display font-bold text-gray-900">
+              {title}
+            </h2>
+            <button className="text-brand-600 font-semibold text-sm hover:text-brand-700 transition-colors">
+              View All
+            </button>
+          </div>
 
-          <div className="flex gap-6 overflow-x-auto scroll-smooth pb-2">
+          <div className="flex gap-6 overflow-x-auto hide-scrollbar py-4 px-1 snap-x snap-mandatory">
             {items.map(({ title, desc, price, rating, image }, index) => (
-                <Card title={title} key={`${title}-${index}`}  desc={desc} price={price} rating={rating} image={image} index={index}/>
+              <div className="snap-start" key={`${title}-${index}`}>
+                <Card title={title} desc={desc} price={price} rating={rating} image={image} index={index}/>
+              </div>
             ))}
           </div>
         </div>
